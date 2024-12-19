@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tasks</title>
+</head>
+<body>
+  <h1>Tasks</h1>
+  <ul>
+    {% for task in tasks %}
+      <li>{{ task }}</li>
+    {% endfor %}
+  </ul>
+  <form method="post">
+    <label for="task">Task:</label>
+    <input type="text" name="task" id="task">
+    <input type="submit" value="Add">
+  </form>
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      {% for message in messages %}
+        <p>{{ message }}</p>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+</body>
+</html>
